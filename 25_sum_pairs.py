@@ -21,3 +21,13 @@ def sum_pairs(nums, goal):
         >>> sum_pairs([11, 20, 4, 2, 1, 5], 100)
         ()
     """
+    lowest_pair_dif = float("inf")
+    lowest_pair = ()
+    for num1 in nums:
+        num2 = goal - num1
+        if num2 in nums and nums.index(num2) >= nums.index(num1):
+            if (nums.index(num2)-nums.index(num1)) < lowest_pair_dif:
+                lowest_pair_dif = nums.index(num2)-nums.index(num1)
+                lowest_pair = (num1, num2)
+    return lowest_pair
+
