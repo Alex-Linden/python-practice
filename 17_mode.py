@@ -1,3 +1,5 @@
+import math
+
 def mode(nums):
     """Return most-common number in list.
 
@@ -11,3 +13,9 @@ def mode(nums):
         >>> mode([2, 2, 3, 3, 2])
         2
     """
+    most_common = -math.inf  # float('-inf') works too
+    for val in nums:
+        if nums.count(val) > most_common:
+            most_common = val
+
+    return most_common

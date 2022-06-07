@@ -1,3 +1,6 @@
+from distutils.log import error
+
+
 def calculate(operation, a, b, make_int=False, message='The result is'):
     """Perform operation on a + b, ()possibly truncating) & returning w/msg.
 
@@ -28,3 +31,21 @@ def calculate(operation, a, b, make_int=False, message='The result is'):
           ...
         ValueError: Invalid Operation
     """
+    ans = 0
+    if operation == 'add':
+        ans = a + b
+    elif operation == 'subtract':
+        ans = a - b
+    elif operation == 'multiply':
+        ans = a * b
+    elif operation == 'divide':
+        ans = a / b
+    else:
+        raise ValueError("Invalid Operation")
+
+    if make_int:
+        ans = int(ans)
+    
+    return message + ' ' + str(ans)
+
+
