@@ -24,3 +24,11 @@ def truncate(phrase, n):
         >>> truncate("Well", 3)
         '...'
     """
+    if n < 3:
+        return 'Truncation must be at least 3 characters.'
+    elif n > len(phrase):
+        return phrase
+    else:
+        truncated = phrase[:n-3]
+        return f"{truncated}..."
+
